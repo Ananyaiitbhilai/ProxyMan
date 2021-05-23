@@ -1,9 +1,5 @@
 # ProxyMan
-Proxy Manager for android
-
-## ❓ Problem Statement
-
-
+Global Proxy Manager for android
 
 ## :sparkles: Features
 - Clean UI.
