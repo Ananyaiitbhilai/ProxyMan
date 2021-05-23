@@ -1,5 +1,5 @@
 # ProxyMan
-Global Proxy Manager for android
+Global Proxy Manager for android [ROOT]
 
 ## :sparkles: Features
 - Clean UI.
