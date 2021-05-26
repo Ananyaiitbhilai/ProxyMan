@@ -30,7 +30,6 @@ class Proxy {
 class ProxyMan {
   //used for reading from parent class
   bool loaded = false;
-  bool dirty = true; //if true, the widgets based on this needs rebuilding
   //the proxy stuff
   List<Proxy> proxies = [];
   int activeIndex = 0;
@@ -112,7 +111,6 @@ class ProxyMan {
     if (temp.valiadate()) {
       proxies.add(Proxy(name, ip, port));
       save();
-      dirty = true;
       return true;
     }
     return false;
@@ -122,7 +120,6 @@ class ProxyMan {
     if (proxy.valiadate()) {
       proxies.add(proxy);
       save();
-      dirty = true;
       return true;
     }
     return false;
@@ -131,12 +128,10 @@ class ProxyMan {
   bool rem(int index) {
     proxies.removeAt(index);
     save();
-    dirty = true;
     return true;
   }
 
   void setProxyState() {
-    dirty = true; //[TODO] : Implement correct dirty update checking
     superuser.exec("settings get global http_proxy", parseGlobalProxy);
     if (proxyActive == false) {
       proxyIndex = -1;
@@ -160,13 +155,13 @@ class ProxyMan {
   void remGlobalProxy() {
     superuser.exec("settings put global http_proxy :0", (p0) => null);
     proxyActive = false;
-    dirty = true;
+    proxyIndex = -1;
   }
 
   void setGlobalProxy(Proxy proxy) {
     superuser.exec("settings put global http_proxy ${proxy.ip}:${proxy.port}",
         (p0) => null);
     proxyActive = true;
-    dirty = true;
+    proxyIndex = proxies.indexOf(proxy);
   }
 }

@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:proxyman/settings.dart';
-import 'package:proxyman/widgets.dart';
+import 'package:proxyman/shell.dart';
+import 'package:proxyman/switch.dart';
 import 'package:proxyman/proxy.dart';
 import 'package:animations/animations.dart';
 
@@ -33,8 +34,11 @@ class _HomeState extends State<Home> {
   late Widget desc;
   late Timer updateTimer;
 
+  void rebuild() {
+    setState(() {});
+  }
+
   bool switchCallback(bool value) {
-    proxyMan.setProxyState();
     int state = proxyMan.proxyIndex;
     if (state == -1) {
       Proxy? active = proxyMan.getSelectedProxy();

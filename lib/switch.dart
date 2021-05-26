@@ -90,6 +90,7 @@ class _PowerSwitchState extends State<PowerSwitch>
                   animationController.reset();
                   animationController.forward();
                   setState(() {});
+                  Home.of(context)!.rebuild();
                 }
               },
               child: CustomPaint(
