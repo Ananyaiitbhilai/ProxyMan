@@ -5,6 +5,9 @@ Global Proxy Manager for android [ROOT]
 - Clean UI.
 - Tech Stack : Flutter/Android
 
+## TODO
+- Run on non root devices. (Either use dpm set-device-admin or request privilege from inside the app)
+- Fix spacing in main screen
 
 ## Code Contributors
 
