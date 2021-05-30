@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:proxyman/settings.dart';
 import 'package:proxyman/shell.dart';
 import 'package:proxyman/switch.dart';
@@ -30,6 +31,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  static const adminPlatform =
+      const MethodChannel("com.example.proxyman/admin");
   late ProxyMan proxyMan;
   late Widget desc;
   late Timer updateTimer;
@@ -69,8 +72,18 @@ class _HomeState extends State<Home> {
     setState(() {});
   }
 
+  void initAdmin() async {
+    try {
+      bool result = await adminPlatform.invokeMethod("getRights");
+      print("MehodChannel returned : $result");
+    } on PlatformException catch (error) {
+      print("Admin init failed with error: ${error.message}");
+    }
+  }
+
   @override
   void initState() {
+    initAdmin();
     super.initState();
     proxyMan = ProxyMan(true);
     updateTimer = Timer.periodic(Duration(milliseconds: 500), (timer) {
