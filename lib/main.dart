@@ -32,7 +32,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   static const adminPlatform =
-      const MethodChannel("com.example.proxyman/admin");
+      const MethodChannel("com.openlake.proxyman/admin");
   late ProxyMan proxyMan;
   late Widget desc;
   late Timer updateTimer;
@@ -85,8 +85,10 @@ class _HomeState extends State<Home> {
   void initState() {
     initAdmin();
     super.initState();
-    proxyMan = ProxyMan(true);
+    //[TODO] : change back to true in production for rooted devices
+    proxyMan = ProxyMan(false);
     updateTimer = Timer.periodic(Duration(milliseconds: 500), (timer) {
+      if (proxyMan.loaded) proxyMan.load();
       desc = setDesc();
       setState(() {});
     });

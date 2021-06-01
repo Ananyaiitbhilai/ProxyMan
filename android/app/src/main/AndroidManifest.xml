@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.proxyman">
+    package="com.openlake.proxyman">
    <application
         android:label="proxyman"
         android:icon="@mipmap/launcher_icon">
@@ -32,17 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- Fix the errors in the receiver -->
-<!--        <receiver android:name=".app.DeviceAdmin$DeviceAdminReceiver"-->
-<!--        android:label="@string/device_admin"-->
-<!--        android:description="@string/admin"-->
-<!--        android:permission="android.permission.BIND_DEVICE_ADMIN">-->
-<!--          &lt;!&ndash; <meta-data android:name="android.app.device_admin"-->
-<!--                  android:resource="@xml/device_admin" /> &ndash;&gt;-->
-<!--          <intent-filter>-->
-<!--              <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />-->
-<!--          </intent-filter>-->
-<!--        </receiver>-->
+        <activity android:name=".DeviceAdmin"
+            android:label="DeviceAdminReciever">
+        </activity>
+        <receiver android:name=".DeviceAdmin$DeviceAdmin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+                <intent-filter>
+                    <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                </intent-filter>
+                <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_policies"/>
+        </receiver>
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
