@@ -12,7 +12,7 @@ Global Proxy Manager for android [ROOT]
 ## Code Contributors
 
 The success of our vision to bring knowledge to every single hand depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
-
+To know about the steps to create a PR, click [here](wiki link)
 ## 📄 Creating a PR
 
 If you want to optimize this project, add features or remove bugs from this project, you are highly encouraged to do so by creating a PR. Your PR would be reviewed by the maintainer and then it depends on maintainer to merge that PR or not.
@@ -20,7 +20,7 @@ If you want to optimize this project, add features or remove bugs from this proj
 If you don't know how to create a PR, don't worry. Here is a step-by-step procedure on how to proceed to create a PR.
 
 
-**#**  Take a look at the existing or create your own issues. A first good issue can be updating README file. Since Open Lake maintainers are generous enough, it is optional to create a issue or wait for a issue to be assigned to you, you can directly create a PR without creating an issue.
+**#**  Take a look at the existing or create your own issues. You can take upon an issue based on the tags or labels. Basically a label helps one to filter and catogerize a issue
 
 **1.**  Fork repository.
 
@@ -66,7 +66,7 @@ git checkout -b <your branch name>
 
 <p align="center"><img width=40% src="https://media.giphy.com/media/QNFhOolVeCzPQ2Mx85/giphy.gif"></p>
 
-**10.** Track your changes .
+**10.** Stage your changes .
 
 ```
 git add . 
@@ -86,7 +86,7 @@ git push -u origin <your branch name>
 
 **13.** To create a pull request, click on `compare and pull requests`. Please ensure you compare your feature branch to the desired branch of the repo you are suppose to make a PR to.
 
-**14.** Add appropriate title and description to your pull request explaining your changes. You can see the official PR Format Guidelines [here](https://github.com/OpenLake/Leaderboard-Pro/wiki/PR-Format-Guidelines).
+**14.** Add appropriate title and description to your pull request explaining your changes.
 
 **15.** Click on `Create Pull Request`.
 
